@@ -2,7 +2,7 @@ import sqlite3
 
 # DBファイルを保存するためのファイルパス
 # Google Colab
-path = '/Users/riontakano/Desktop/fa/'
+path = '/Users/riontakano/-/'
 # ローカル（自分のMac）
 # path = '../db/'
 # DBファイル名
@@ -80,7 +80,7 @@ con.close()
 
 import sqlite3
 # データベースへの接続
-con = sqlite3.connect("dsprogramming2")
+con = sqlite3.connect("dsprogramming.db")
 c = con.cursor()
     # データベースに挿入
 "INSERT INTO weather(temperature, humidity) VALUES (?, ?)"

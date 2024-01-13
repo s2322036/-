@@ -5,7 +5,7 @@ import time
 
 # DBファイルを保存するためのファイルパス
 # Google Colab
-path = '/Users/riontakano/Desktop/fa/'
+path = '/Users/riontakano/-/'
 # ローカル（自分のMac）
 # path = '../db/'
 # DBファイル名
@@ -128,4 +128,3 @@ for temperature, humidity in temperature_humidity_data_list:
 con.commit()
 # データベースのコネクションを閉じる
 con.close()
-
