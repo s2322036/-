@@ -9,7 +9,7 @@ path = '/Users/riontakano/-/'
 # ローカル（自分のMac）
 # path = '../db/'
 # DBファイル名
-db_name = 'dsprogramming'
+db_name = 'dsprogramming.db'
 # DBに接続する（指定したDBファイル存在しない場合は，新規に作成される）
 con = sqlite3.connect(path + db_name)
 c = con.cursor()
@@ -105,7 +105,7 @@ print("気温と湿度データリスト:", temperature_humidity_data_list)
 temperature = float(temperature_data)
 humidity = float(humidity_data)
 # データベースへの接続
-con = sqlite3.connect("dsprogramming")
+con = sqlite3.connect("dsprogramming.db")
 c = con.cursor()
 # データベースに挿入
 c.execute("INSERT INTO weather(temperature, humidity) VALUES (?, ?)", (temperature, humidity))
@@ -115,7 +115,7 @@ con.close()
 
 import sqlite3
 # データベースへの接続
-con = sqlite3.connect("dsprogramming")
+con = sqlite3.connect("dsprogramming.db")
 c = con.cursor()
 # データの取得とデータベースへの挿入
 for temperature, humidity in temperature_humidity_data_list:
@@ -126,5 +126,21 @@ for temperature, humidity in temperature_humidity_data_list:
     c.execute("INSERT INTO weather(temperature, humidity) VALUES (?, ?)", (temperature, humidity))
 # データベースへの変更をコミット
 con.commit()
+# データベースのコネクションを閉じる
+con.close()
+
+
+
+import sqlite3
+import csv
+
+# データベースへの接続
+con = sqlite3.connect("dsprogramming.db")
+c = con.cursor()
+
+# データベースからデータを取得
+c.execute("SELECT temperature, humidity FROM weather")
+data = c.fetchall()
+
 # データベースのコネクションを閉じる
 con.close()
